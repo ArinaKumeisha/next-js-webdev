@@ -17,15 +17,21 @@ const Index = ({socials}) => {
 };
 
 export async function getStaticProps() {
-  const response = await fetch(`${process.env.API_HOST}/socials`);
-  const socials = await response.json();
-  if(!socials){
+  try {
+    const response = await fetch(`${process.env.API_HOST}/socials`);
+    const socials = await response.json();
+    if (!socials) {
+      return {
+        notFound: true,
+      }
+    }
     return {
-      notFound: true,
+      props: {socials},
     }
   }
+catch {
   return {
-    props: {socials},
-  }
+    props: {socials: null}
+  }}
 }
 export default Index;

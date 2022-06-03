@@ -1,0 +1,29 @@
+.posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .postBlock {
+    display: flex;
+    flex-wrap: wrap;
+    @media (max-width: 918px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .post {
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      height: 350px;
+      background: aquamarine;
+      margin: 15px;
+      padding: 15px;
+      position: relative;
+      @media (max-width: 450px) {
+        width: 300px;
+
+      }
+    }
+  }
+}
